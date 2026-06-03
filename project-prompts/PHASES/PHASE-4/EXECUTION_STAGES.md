@@ -1,12 +1,12 @@
-﻿File: /project-prompts/PHASES/PHASE-4/EXECUTION_STAGES.md
+File: /project-prompts/PHASES/PHASE-4/EXECUTION_STAGES.md
 
-# PHASE 4 â€” Order Management (User-Facing): Execution Stages
+# PHASE 4 - Order Management (User-Facing): Execution Stages
 
 REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 1 â€” Setup
+## STAGE 1 - Setup
 
 **REQ-IDs**: REQ-009, REQ-032
 **TEST-IDs**: TEST-009-UT-POS, TEST-032-UT-POS
@@ -16,7 +16,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Install offline-detection library or implement custom hook
 
 **TDD Flow**:
-1. Write: useNetworkStatus.test.tsx â€” verify hook returns false when navigator.onLine is false
+1. Write: useNetworkStatus.test.tsx - verify hook returns false when navigator.onLine is false
 2. Run -> FAIL
 3. Implement: useNetworkStatus hook
 4. Run -> PASS
@@ -24,7 +24,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 2 â€” Architecture
+## STAGE 2 - Architecture
 
 **REQ-IDs**: REQ-009, REQ-017, REQ-026, REQ-032
 **TEST-IDs**: TEST-009-UT-POS, TEST-017-UT-POS, TEST-026-UT-POS, TEST-032-UT-POS
@@ -36,7 +36,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Define transaction strategy for database (Sequelize $transaction)
 
 **TDD Flow**:
-1. Write: order-types.test.ts â€” verify Order and OrderItem types include status strings
+1. Write: order-types.test.ts - verify Order and OrderItem types include status strings
 2. Run -> FAIL
 3. Implement: Order types and Enums (PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED)
 4. Run -> PASS
@@ -44,7 +44,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 3 â€” Database
+## STAGE 3 - Database
 
 **REQ-IDs**: REQ-017
 **TEST-IDs**: TEST-017-IT-POS
@@ -55,7 +55,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Verify ACID compliance of order creation (already created in Phase 3 webhook, but need to verify transaction wrapper)
 
 **TDD Flow**:
-1. Write: order-transaction.test.ts â€” verify order creation fails safely if order items fail to insert
+1. Write: order-transaction.test.ts - verify order creation fails safely if order items fail to insert
 2. Run -> FAIL
 3. Implement: Sequelize $transaction block in order creation service
 4. Run -> PASS
@@ -63,17 +63,17 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 4 â€” Backend
+## STAGE 4 - Backend
 
 **REQ-IDs**: REQ-009
 **TEST-IDs**: TEST-009-UT-POS, TEST-009-IT-POS
 
 **Tasks**:
-- GET /orders â€” fetch user's orders, paginated, sorted by date descending
-- GET /orders/:id â€” fetch specific order details including items and product snapshot data
+- GET /orders - fetch user's orders, paginated, sorted by date descending
+- GET /orders/:id - fetch specific order details including items and product snapshot data
 
 **TDD Flow**:
-1. Write: order-api.test.ts â€” GET /orders returns user orders
+1. Write: order-api.test.ts - GET /orders returns user orders
 2. Run -> FAIL
 3. Implement: orderService.getUserOrders() and route handler
 4. Run -> PASS
@@ -81,7 +81,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 5 â€” Frontend
+## STAGE 5 - Frontend
 
 **REQ-IDs**: REQ-009, REQ-026
 **TEST-IDs**: TEST-009-E2E-POS, TEST-026-E2E-POS
@@ -93,7 +93,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Build ErrorState component (shows "Internet Outage" with "Retry" button when API calls fail due to network)
 
 **TDD Flow**:
-1. Write: OfflineIndicator.test.tsx â€” renders when network is offline
+1. Write: OfflineIndicator.test.tsx - renders when network is offline
 2. Run -> FAIL
 3. Implement: OfflineIndicator using useNetworkStatus
 4. Run -> PASS
@@ -101,7 +101,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 6 â€” State
+## STAGE 6 - State
 
 **REQ-IDs**: REQ-009
 **TEST-IDs**: TEST-009-UT-POS
@@ -112,7 +112,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Configure React Query retry logic for network failures
 
 **TDD Flow**:
-1. Write: useOrders.test.tsx â€” fetches and caches user orders
+1. Write: useOrders.test.tsx - fetches and caches user orders
 2. Run -> FAIL
 3. Implement: useOrders hook
 4. Run -> PASS
@@ -120,7 +120,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 7 â€” Auth
+## STAGE 7 - Auth
 
 **REQ-IDs**: REQ-009
 **TEST-IDs**: TEST-009-IT-POS
@@ -130,7 +130,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Ensure user can only fetch their own orders (authorization check on :id)
 
 **TDD Flow**:
-1. Write: order-auth.test.ts â€” GET /orders/:id for someone else's order returns 403 or 404
+1. Write: order-auth.test.ts - GET /orders/:id for someone else's order returns 403 or 404
 2. Run -> FAIL
 3. Implement: authorization check in orderService.getOrderById()
 4. Run -> PASS
@@ -138,7 +138,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 8 â€” Integration
+## STAGE 8 - Integration
 
 **REQ-IDs**: REQ-009, REQ-017, REQ-026, REQ-032
 **TEST-IDs**: TEST-009-IT-POS, TEST-017-IT-POS, TEST-026-IT-POS, TEST-032-IT-POS
@@ -149,7 +149,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 - Verify database transaction rollbacks on simulated failures
 
 **TDD Flow**:
-1. Write: order-integration.test.ts â€” full fetch flow with mock offline failure and retry
+1. Write: order-integration.test.ts - full fetch flow with mock offline failure and retry
 2. Run -> FAIL
 3. Implement: integration wiring with React Query retry
 4. Run -> PASS
@@ -157,7 +157,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 9 â€” Testing
+## STAGE 9 - Testing
 
 **REQ-IDs**: All Phase 4 REQs
 **TEST-IDs**: All Phase 4 TEST-IDs
@@ -171,7 +171,7 @@ REQs: REQ-009, REQ-017, REQ-026, REQ-032
 
 ---
 
-## STAGE 10 â€” Deployment
+## STAGE 10 - Deployment
 
 **REQ-IDs**: REQ-017
 **TEST-IDs**: TEST-017-E2E-POS

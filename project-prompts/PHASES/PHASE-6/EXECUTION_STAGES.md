@@ -1,12 +1,12 @@
-﻿File: /project-prompts/PHASES/PHASE-6/EXECUTION_STAGES.md
+File: /project-prompts/PHASES/PHASE-6/EXECUTION_STAGES.md
 
-# PHASE 6 â€” Admin Panel (Products, Inventory & Orders): Execution Stages
+# PHASE 6 - Admin Panel (Products, Inventory & Orders): Execution Stages
 
 REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 1 â€” Setup
+## STAGE 1 - Setup
 
 **REQ-IDs**: REQ-010
 **TEST-IDs**: TEST-010-UT-POS
@@ -17,7 +17,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Configure image upload service (e.g., Azure Blob Storage or AWS S3 mock)
 
 **TDD Flow**:
-1. Write: rbac-config.test.ts â€” verify Admin role definition exists
+1. Write: rbac-config.test.ts - verify Admin role definition exists
 2. Run -> FAIL
 3. Implement: User role enum and RBAC constants
 4. Run -> PASS
@@ -25,7 +25,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 2 â€” Architecture
+## STAGE 2 - Architecture
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012
 **TEST-IDs**: TEST-010-UT-POS, TEST-011-UT-POS, TEST-012-UT-POS
@@ -36,7 +36,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Establish concurrent update strategy for inventory (optimistic locking vs pessimistic locking vs atomic increments)
 
 **TDD Flow**:
-1. Write: admin-layout.test.tsx â€” verify layout renders sidebar and children
+1. Write: admin-layout.test.tsx - verify layout renders sidebar and children
 2. Run -> FAIL
 3. Implement: AdminLayout component
 4. Run -> PASS
@@ -44,7 +44,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 3 â€” Database
+## STAGE 3 - Database
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-030
 **TEST-IDs**: TEST-010-IT-POS, TEST-011-IT-POS, TEST-030-IT-POS
@@ -56,7 +56,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Implement atomic update logic for inventory using Sequelize `update` with `decrement`/`increment`
 
 **TDD Flow**:
-1. Write: inventory-atomic.test.ts â€” simulate concurrent purchases, verify stock doesn't go below 0
+1. Write: inventory-atomic.test.ts - simulate concurrent purchases, verify stock doesn't go below 0
 2. Run -> FAIL
 3. Implement: atomic decrement in Sequelize and database-level CHECK constraint (stock >= 0)
 4. Run -> PASS
@@ -64,20 +64,20 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 4 â€” Backend
+## STAGE 4 - Backend
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012, REQ-030
 **TEST-IDs**: TEST-010-UT-POS, TEST-010-UT-NEG, TEST-010-IT-POS, TEST-011-UT-POS, TEST-011-UT-NEG, TEST-011-IT-POS, TEST-012-UT-POS, TEST-012-UT-NEG, TEST-012-IT-POS, TEST-030-UT-POS, TEST-030-UT-NEG, TEST-030-IT-POS
 
 **Tasks**:
 - POST /admin/products, PUT /admin/products/:id, DELETE /admin/products/:id (Archive)
-- GET /admin/inventory â€” list products with stock < threshold (low-stock alerts)
-- PUT /admin/inventory/:id â€” manually update stock level (serialized)
-- GET /admin/orders â€” list all orders
-- PUT /admin/orders/:id/status â€” update order status (e.g., Processing -> Shipped)
+- GET /admin/inventory - list products with stock < threshold (low-stock alerts)
+- PUT /admin/inventory/:id - manually update stock level (serialized)
+- GET /admin/orders - list all orders
+- PUT /admin/orders/:id/status - update order status (e.g., Processing -> Shipped)
 
 **TDD Flow**:
-1. Write: admin-product.test.ts â€” create product API requires admin role
+1. Write: admin-product.test.ts - create product API requires admin role
 2. Run -> FAIL
 3. Implement: POST /admin/products with admin middleware
 4. Run -> PASS
@@ -85,7 +85,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 5 â€” Frontend
+## STAGE 5 - Frontend
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012, REQ-033
 **TEST-IDs**: TEST-010-E2E-POS, TEST-011-E2E-POS, TEST-012-E2E-POS, TEST-033-E2E-POS
@@ -97,7 +97,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Integrate image upload component in Product form
 
 **TDD Flow**:
-1. Write: InventoryTable.test.tsx â€” rows with stock < 10 have alert styling
+1. Write: InventoryTable.test.tsx - rows with stock < 10 have alert styling
 2. Run -> FAIL
 3. Implement: InventoryTable with conditional styling
 4. Run -> PASS
@@ -105,7 +105,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 6 â€” State
+## STAGE 6 - State
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012
 **TEST-IDs**: TEST-010-UT-POS, TEST-011-UT-POS, TEST-012-UT-POS
@@ -116,7 +116,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Configure polling or manual refresh for inventory and orders (real-time not strictly required, but freshness is)
 
 **TDD Flow**:
-1. Write: useAdminMutations.test.tsx â€” updating product invalidates product list cache
+1. Write: useAdminMutations.test.tsx - updating product invalidates product list cache
 2. Run -> FAIL
 3. Implement: React Query mutation with onSettled invalidation
 4. Run -> PASS
@@ -124,7 +124,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 7 â€” Auth
+## STAGE 7 - Auth
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012
 **TEST-IDs**: TEST-010-IT-POS, TEST-011-IT-POS, TEST-012-IT-POS
@@ -135,7 +135,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Protect frontend `/admin/*` routes (redirect non-admins to home)
 
 **TDD Flow**:
-1. Write: admin-auth.test.ts â€” non-admin user accessing /api/admin/orders gets 403
+1. Write: admin-auth.test.ts - non-admin user accessing /api/admin/orders gets 403
 2. Run -> FAIL
 3. Implement: requireAdmin middleware
 4. Run -> PASS
@@ -143,7 +143,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 8 â€” Integration
+## STAGE 8 - Integration
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012, REQ-030
 **TEST-IDs**: TEST-010-IT-POS, TEST-011-IT-POS, TEST-012-IT-POS, TEST-030-IT-POS
@@ -154,7 +154,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 - Verify concurrent inventory updates: 2 admins update simultaneously, result is correct
 
 **TDD Flow**:
-1. Write: product-lifecycle.test.ts â€” full e2e flow via API
+1. Write: product-lifecycle.test.ts - full e2e flow via API
 2. Run -> FAIL
 3. Implement: correct archiving logic (filter archived from public API)
 4. Run -> PASS
@@ -162,7 +162,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 9 â€” Testing
+## STAGE 9 - Testing
 
 **REQ-IDs**: All Phase 6 REQs
 **TEST-IDs**: All Phase 6 TEST-IDs
@@ -176,7 +176,7 @@ REQs: REQ-010, REQ-011, REQ-012, REQ-030, REQ-033
 
 ---
 
-## STAGE 10 â€” Deployment
+## STAGE 10 - Deployment
 
 **REQ-IDs**: REQ-010, REQ-011, REQ-012
 **TEST-IDs**: TEST-010-E2E-POS, TEST-011-E2E-POS, TEST-012-E2E-POS

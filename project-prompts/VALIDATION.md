@@ -1,4 +1,4 @@
-﻿File: /project-prompts/VALIDATION.md
+File: /project-prompts/VALIDATION.md
 
 # Validation Report
 

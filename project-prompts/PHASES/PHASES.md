@@ -1,4 +1,4 @@
-﻿File: /project-prompts/PHASES/PHASES.md
+File: /project-prompts/PHASES/PHASES.md
 
 # Project Phases
 
@@ -11,7 +11,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 1 â€” Foundation & Authentication (MVP Core)
+## PHASE 1 - Foundation & Authentication (MVP Core)
 
 **Goal**: Establish infrastructure, CI/CD pipeline, and core authentication so the application can run end-to-end.
 
@@ -40,7 +40,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 2 â€” Product Catalog & Search
+## PHASE 2 - Product Catalog & Search
 
 **Goal**: Users can browse, search, and view products. Forms the public-facing storefront.
 
@@ -64,7 +64,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 3 â€” Wishlist, Cart & Checkout
+## PHASE 3 - Wishlist, Cart & Checkout
 
 **Goal**: Users can save products, manage a shopping cart, and complete a purchase.
 
@@ -93,7 +93,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 4 â€” Order Management (User-Facing)
+## PHASE 4 - Order Management (User-Facing)
 
 **Goal**: Users can track and review orders after purchase.
 
@@ -117,7 +117,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 5 â€” Personalization & Recommendations
+## PHASE 5 - Personalization & Recommendations
 
 **Goal**: Serve personalized product suggestions based on user behavior.
 
@@ -138,7 +138,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 6 â€” Admin Panel (Products, Inventory & Orders)
+## PHASE 6 - Admin Panel (Products, Inventory & Orders)
 
 **Goal**: Administrators can manage products, inventory, and orders.
 
@@ -164,7 +164,7 @@ Phases 4 through 7 represent post-MVP enhancements (Order Tracking, Recommendati
 
 ---
 
-## PHASE 7 â€” Analytics, Reports & Non-Functional Hardening
+## PHASE 7 - Analytics, Reports & Non-Functional Hardening
 
 **Goal**: Admin analytics dashboard and full non-functional requirement compliance.
 

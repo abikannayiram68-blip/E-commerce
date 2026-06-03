@@ -1,21 +1,21 @@
-﻿File: /project-prompts/SYSTEM_DESIGN.md
+File: /project-prompts/SYSTEM_DESIGN.md
 # System Design
 
 ## Architecture Overview
-- **Clientâ€‘Side**: Singleâ€‘Page Application (SPA) built with **React 18** using **Vite** for fast dev builds. UI follows a componentâ€‘driven design system with darkâ€‘mode support and glassmorphism styling.
-- **Serverâ€‘Side**: **Node.js 20** runtime exposing a **RESTful API** via **Express**. Business logic is separated into services and controllers, enabling easy unit testing.
-- **Data Layer**: **MySQL 8** accessed through **Sequelize ORM** for typeâ€‘safe queries and migrations.
+- **Client-Side**: Single-Page Application (SPA) built with **React 18** using **Vite** for fast dev builds. UI follows a component-driven design system with dark-mode support and glassmorphism styling.
+- **Server-Side**: **Node.js 20** runtime exposing a **RESTful API** via **Express**. Business logic is separated into services and controllers, enabling easy unit testing.
+- **Data Layer**: **MySQL 8** accessed through **Sequelize ORM** for type-safe queries and migrations.
 - **Authentication**: **OAuth 2.0** with **Google** provider, using **JWT** stored in HttpOnly cookies for session management.
-- **Cache**: **Redis** for session store and shortâ€‘lived query caching (e.g., search suggestions).
+- **Cache**: **Redis** for session store and short-lived query caching (e.g., search suggestions).
 - **CI/CD**: GitHub Actions pipeline runs lint, test suites (unit, integration, E2E) and deploys to **Azure Web Apps** on merge to `main`.
 
 ## Tech Stack
 | Layer | Technology | Reason |
 |-------|------------|--------|
-| Frontend | React 18, Vite, TypeScript, TailwindCSS, Framer Motion | Modern, fast, componentâ€‘based UI with animation support |
-| Backend | Node.js 20, Express, TypeScript, Sequelize, JWT, Passportâ€‘Google | Proven ecosystem, strong typing, rapid development |
+| Frontend | React 18, Vite, TypeScript, TailwindCSS, Framer Motion | Modern, fast, component-based UI with animation support |
+| Backend | Node.js 20, Express, TypeScript, Sequelize, JWT, Passport-Google | Proven ecosystem, strong typing, rapid development |
 | Database | MySQL 8 | Relational data, ACID guarantees, rich query capabilities |
-| Cache | Redis 7 | Lowâ€‘latency session and query caching |
+| Cache | Redis 7 | Low-latency session and query caching |
 | Testing | Jest, React Testing Library, SuperTest, Cypress | Full coverage of unit, integration, and E2E tests |
 | DevOps | GitHub Actions, Docker, Azure Web Apps | Automated CI/CD, containerization |
 
@@ -42,14 +42,14 @@ CREATE TABLE products (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Wishlist items (manyâ€‘toâ€‘many)
+-- Wishlist items (many-to-many)
 CREATE TABLE wishlists (
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     product_id INT REFERENCES products(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, product_id)
 );
 
--- Search suggestions (preâ€‘computed) â€“ optional
+-- Search suggestions (pre-computed) - optional
 CREATE TABLE suggestions (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
@@ -64,10 +64,10 @@ CREATE TABLE suggestions (
 |--------|----------|-------------|------|--------------|----------|
 | POST | `/api/auth/google` | Exchange Google auth code for JWT | None | `{ code: string }` | `{ token: string, user: User }` |
 | GET | `/api/products` | List products (search & pagination) | Optional JWT | Query: `q`, `page`, `limit` | `{ items: Product[], total: number }` |
-| GET | `/api/products/:id` | Get product details | Optional JWT | â€“ | `Product` |
+| GET | `/api/products/:id` | Get product details | Optional JWT | - | `Product` |
 | POST | `/api/wishlist` | Add product to user's wishlist | JWT | `{ productId: number }` | `{ success: true }` |
-| GET | `/api/wishlist` | Retrieve user's wishlist | JWT | â€“ | `Product[]` |
-| GET | `/api/suggestions` | Personalized suggestions based on activity | JWT | â€“ | `Product[]` |
+| GET | `/api/wishlist` | Retrieve user's wishlist | JWT | - | `Product[]` |
+| GET | `/api/suggestions` | Personalized suggestions based on activity | JWT | - | `Product[]` |
 
 ## Folder Structure
 ```

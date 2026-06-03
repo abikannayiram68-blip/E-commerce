@@ -1,43 +1,43 @@
-﻿File: /project-prompts/MEMORY/REQUIREMENTS_STATE.md
+File: /project-prompts/MEMORY/REQUIREMENTS_STATE.md
 
 # Requirements State
 
-This document captures the current status of each requirement (REQâ€‘ID) as derived from the original requirements file.
+This document captures the current status of each requirement (REQ-ID) as derived from the original requirements file.
 
-| REQâ€‘ID | Description (short) | Status |
+| REQ-ID | Description (short) | Status |
 |--------|---------------------|--------|
-| REQâ€‘001 | Google Authentication | âœ… Defined |
-| REQâ€‘002 | Product Search | âœ… Defined |
-| REQâ€‘003 | Typoâ€‘Tolerant Search | âœ… Defined |
-| REQâ€‘004 | Wishlist | âœ… Defined |
-| REQâ€‘005 | Personalized Suggestions | âœ… Defined |
-| REQâ€‘006 | Smart Suggestions Engine | âœ… Defined |
-| REQâ€‘007 | Recently Viewed Products | âœ… Defined |
-| REQâ€‘008 | Shopping Cart | âœ… Defined |
-| REQâ€‘009 | Order Management (User) | âœ… Defined |
-| REQâ€‘010 | Product Management (Admin) | âœ… Defined |
-| REQâ€‘011 | Inventory Management (Admin) | âœ… Defined |
-| REQâ€‘012 | Order Management (Admin) | âœ… Defined |
-| REQâ€‘013 | Analytics Dashboard | âœ… Defined |
-| REQâ€‘014 | Usability (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘015 | Accessibility (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘016 | Performance (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘017 | Reliability (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘018 | Security (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘019 | Privacy (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘020 | Scalability (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘021 | Maintainability (Nonâ€‘Functional) | âœ… Defined |
-| REQâ€‘022 | Singleâ€‘Vendor Architecture (Constraint) | âœ… Defined |
-| REQâ€‘023 | Googleâ€‘Only Authentication (Constraint) | âœ… Defined |
-| REQâ€‘024 | No Multiâ€‘Vendor Marketplace (Constraint) | âœ… Defined |
-| REQâ€‘025 | Payment Integration (Constraint) | âœ… Defined |
-| REQâ€‘026 | Internet Outage (Edge) | âœ… Defined |
-| REQâ€‘027 | Outâ€‘ofâ€‘Stock Purchase (Edge) | âœ… Defined |
-| REQâ€‘028 | Search Misspelling (Edge) | âœ… Defined |
-| REQâ€‘029 | Duplicate Wishlist Entry (Edge) | âœ… Defined |
-| REQâ€‘030 | Concurrent Inventory Updates (Edge) | âœ… Defined |
-| REQâ€‘031 | Assumption: Singleâ€‘Vendor Business | âœ… Defined |
-| REQâ€‘032 | Assumption: Reliable Internet | âœ… Defined |
-| REQâ€‘033 | Assumption: Accurate Inventory Data | âœ… Defined |
-| REQâ€‘034 | Assumption: PCI Compliance Handled Externally | âœ… Defined |
-| REQâ€‘035 | Assumption: Google OAuth Configured | âœ… Defined |
+| REQ-001 | Google Authentication |  Defined |
+| REQ-002 | Product Search |  Defined |
+| REQ-003 | Typo-Tolerant Search |  Defined |
+| REQ-004 | Wishlist |  Defined |
+| REQ-005 | Personalized Suggestions |  Defined |
+| REQ-006 | Smart Suggestions Engine |  Defined |
+| REQ-007 | Recently Viewed Products |  Defined |
+| REQ-008 | Shopping Cart |  Defined |
+| REQ-009 | Order Management (User) |  Defined |
+| REQ-010 | Product Management (Admin) |  Defined |
+| REQ-011 | Inventory Management (Admin) |  Defined |
+| REQ-012 | Order Management (Admin) |  Defined |
+| REQ-013 | Analytics Dashboard |  Defined |
+| REQ-014 | Usability (Non-Functional) |  Defined |
+| REQ-015 | Accessibility (Non-Functional) |  Defined |
+| REQ-016 | Performance (Non-Functional) |  Defined |
+| REQ-017 | Reliability (Non-Functional) |  Defined |
+| REQ-018 | Security (Non-Functional) |  Defined |
+| REQ-019 | Privacy (Non-Functional) |  Defined |
+| REQ-020 | Scalability (Non-Functional) |  Defined |
+| REQ-021 | Maintainability (Non-Functional) |  Defined |
+| REQ-022 | Single-Vendor Architecture (Constraint) |  Defined |
+| REQ-023 | Google-Only Authentication (Constraint) |  Defined |
+| REQ-024 | No Multi-Vendor Marketplace (Constraint) |  Defined |
+| REQ-025 | Payment Integration (Constraint) |  Defined |
+| REQ-026 | Internet Outage (Edge) |  Defined |
+| REQ-027 | Out-of-Stock Purchase (Edge) |  Defined |
+| REQ-028 | Search Misspelling (Edge) |  Defined |
+| REQ-029 | Duplicate Wishlist Entry (Edge) |  Defined |
+| REQ-030 | Concurrent Inventory Updates (Edge) |  Defined |
+| REQ-031 | Assumption: Single-Vendor Business |  Defined |
+| REQ-032 | Assumption: Reliable Internet |  Defined |
+| REQ-033 | Assumption: Accurate Inventory Data |  Defined |
+| REQ-034 | Assumption: PCI Compliance Handled Externally |  Defined |
+| REQ-035 | Assumption: Google OAuth Configured |  Defined |

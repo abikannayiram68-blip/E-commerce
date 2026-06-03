@@ -1,12 +1,12 @@
-﻿File: /project-prompts/PHASES/PHASE-2/EXECUTION_STAGES.md
+File: /project-prompts/PHASES/PHASE-2/EXECUTION_STAGES.md
 
-# PHASE 2 â€” Product Catalog & Search: Execution Stages
+# PHASE 2 - Product Catalog & Search: Execution Stages
 
 REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 1 â€” Setup
+## STAGE 1 - Setup
 
 **REQ-IDs**: REQ-002, REQ-003
 **TEST-IDs**: TEST-002-UT-POS, TEST-003-UT-POS
@@ -17,7 +17,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 - Configure Redis for recently-viewed cache (TTL: 24h)
 
 **TDD Flow**:
-1. Write: search-config.test.ts â€” verify FULLTEXT extension is active
+1. Write: search-config.test.ts - verify FULLTEXT extension is active
 2. Run -> FAIL
 3. Implement: migration enabling FULLTEXT
 4. Run -> PASS
@@ -25,7 +25,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 2 â€” Architecture
+## STAGE 2 - Architecture
 
 **REQ-IDs**: REQ-002, REQ-003, REQ-007
 **TEST-IDs**: TEST-002-UT-POS, TEST-003-UT-POS, TEST-007-UT-POS
@@ -36,7 +36,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 - Define shared Product type in /packages/types
 
 **TDD Flow**:
-1. Write: product-types.test.ts â€” verify Product shape matches schema
+1. Write: product-types.test.ts - verify Product shape matches schema
 2. Run -> FAIL
 3. Implement: Product type + Zod schema
 4. Run -> PASS
@@ -44,7 +44,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 3 â€” Database
+## STAGE 3 - Database
 
 **REQ-IDs**: REQ-002, REQ-003, REQ-007
 **TEST-IDs**: TEST-002-IT-POS, TEST-003-IT-POS, TEST-007-IT-POS
@@ -57,7 +57,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 - Create indexes: Product(slug), Product(name trgm), RecentlyViewed(userId, viewedAt)
 
 **TDD Flow**:
-1. Write: product-model.test.ts â€” create product, fetch by slug, verify fields
+1. Write: product-model.test.ts - create product, fetch by slug, verify fields
 2. Run -> FAIL
 3. Implement: Sequelize Product + Category schema + migration
 4. Run -> PASS
@@ -65,20 +65,20 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 4 â€” Backend
+## STAGE 4 - Backend
 
 **REQ-IDs**: REQ-002, REQ-003, REQ-007, REQ-028
 **TEST-IDs**: TEST-002-UT-POS, TEST-002-UT-NEG, TEST-002-IT-POS, TEST-003-UT-POS, TEST-003-UT-NEG, TEST-003-IT-POS, TEST-007-UT-POS, TEST-007-IT-POS, TEST-028-UT-POS, TEST-028-UT-NEG, TEST-028-IT-POS
 
 **Tasks**:
-- GET /products â€” paginated listing with filters (category, price range, sort)
-- GET /products/:slug â€” single product detail
-- GET /search?q=:query â€” fuzzy search via FULLTEXT similarity (<=2 char errors)
-- POST /users/me/recently-viewed â€” record product view (auth required)
-- GET /users/me/recently-viewed â€” return last 10 viewed products (auth required)
+- GET /products - paginated listing with filters (category, price range, sort)
+- GET /products/:slug - single product detail
+- GET /search?q=:query - fuzzy search via FULLTEXT similarity (<=2 char errors)
+- POST /users/me/recently-viewed - record product view (auth required)
+- GET /users/me/recently-viewed - return last 10 viewed products (auth required)
 
 **TDD Flow**:
-1. Write: search.test.ts â€” query "shos" must return "shoes"
+1. Write: search.test.ts - query "shos" must return "shoes"
 2. Run -> FAIL
 3. Implement: productService.search() using FULLTEXT similarity()
 4. Run -> PASS
@@ -86,7 +86,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 5 â€” Frontend
+## STAGE 5 - Frontend
 
 **REQ-IDs**: REQ-002, REQ-003, REQ-007, REQ-028
 **TEST-IDs**: TEST-002-E2E-POS, TEST-003-E2E-POS, TEST-007-E2E-POS, TEST-028-E2E-POS
@@ -100,7 +100,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 - Build RecentlyViewed horizontal scroll section on home + product detail pages
 
 **TDD Flow**:
-1. Write: SearchBar.test.tsx â€” verify debounce delays API call by 300ms
+1. Write: SearchBar.test.tsx - verify debounce delays API call by 300ms
 2. Run -> FAIL
 3. Implement: SearchBar with useDebounce hook
 4. Run -> PASS
@@ -108,19 +108,19 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 6 â€” State
+## STAGE 6 - State
 
 **REQ-IDs**: REQ-002, REQ-007
 **TEST-IDs**: TEST-002-UT-POS, TEST-007-UT-POS
 
 **Tasks**:
 - Implement useProductSearch(query) React Query hook
-- Implement useRecentlyViewed() â€” fetch + record views
+- Implement useRecentlyViewed() - fetch + record views
 - Implement useProductDetail(slug) hook
 - Cache product queries (staleTime: 5 min)
 
 **TDD Flow**:
-1. Write: useRecentlyViewed.test.tsx â€” viewing a product calls POST endpoint
+1. Write: useRecentlyViewed.test.tsx - viewing a product calls POST endpoint
 2. Run -> FAIL
 3. Implement: useRecentlyViewed with mutation + cache invalidation
 4. Run -> PASS
@@ -128,7 +128,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 7 â€” Auth
+## STAGE 7 - Auth
 
 **REQ-IDs**: REQ-002, REQ-007
 **TEST-IDs**: TEST-002-IT-POS, TEST-007-IT-POS
@@ -139,7 +139,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 - Verify search works for anonymous users
 
 **TDD Flow**:
-1. Write: product-auth.test.ts â€” GET /products returns 200 without auth
+1. Write: product-auth.test.ts - GET /products returns 200 without auth
 2. Run -> FAIL
 3. Implement: optional auth middleware for public product routes
 4. Run -> PASS
@@ -147,7 +147,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 8 â€” Integration
+## STAGE 8 - Integration
 
 **REQ-IDs**: REQ-002, REQ-003, REQ-007, REQ-028
 **TEST-IDs**: TEST-002-IT-POS, TEST-003-IT-POS, TEST-007-IT-POS, TEST-028-IT-POS
@@ -159,7 +159,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 - Verify product pagination (page 1, 2, 3) works correctly
 
 **TDD Flow**:
-1. Write: search-integration.test.ts â€” end-to-end fuzzy search pipeline
+1. Write: search-integration.test.ts - end-to-end fuzzy search pipeline
 2. Run -> FAIL
 3. Implement: full search route -> service -> DB pipeline
 4. Run -> PASS
@@ -167,7 +167,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 9 â€” Testing
+## STAGE 9 - Testing
 
 **REQ-IDs**: REQ-002, REQ-003, REQ-007, REQ-028
 **TEST-IDs**: All Phase 2 TEST-IDs
@@ -181,7 +181,7 @@ REQs: REQ-002, REQ-003, REQ-007, REQ-028
 
 ---
 
-## STAGE 10 â€” Deployment
+## STAGE 10 - Deployment
 
 **REQ-IDs**: REQ-016, REQ-020
 **TEST-IDs**: TEST-016-E2E-POS, TEST-020-E2E-POS

@@ -1,4 +1,4 @@
-﻿File: /project-prompts/PHASES/MVP.md
+File: /project-prompts/PHASES/MVP.md
 
 # Minimum Viable Product (MVP) Definition
 
@@ -17,4 +17,4 @@ The following features are slated for post-MVP releases:
 - Full Admin Panel for inventory and order management (Phase 6)
 - Analytics dashboards and massive scale testing (Phase 7)
 
-By focusing strictly on Phases 1â€“3 for the initial release, the system will deliver a functional, secure, and complete purchasing experience as quickly as possible.
+By focusing strictly on Phases 1-3 for the initial release, the system will deliver a functional, secure, and complete purchasing experience as quickly as possible.

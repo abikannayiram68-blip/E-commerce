@@ -1,12 +1,12 @@
-﻿File: /project-prompts/PHASES/PHASE-5/EXECUTION_STAGES.md
+File: /project-prompts/PHASES/PHASE-5/EXECUTION_STAGES.md
 
-# PHASE 5 â€” Personalization & Recommendations: Execution Stages
+# PHASE 5 - Personalization & Recommendations: Execution Stages
 
 REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 1 â€” Setup
+## STAGE 1 - Setup
 
 **REQ-IDs**: REQ-005
 **TEST-IDs**: TEST-005-UT-POS
@@ -16,7 +16,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Create mock behavioral data for tests (mock views, wishlist items, purchases)
 
 **TDD Flow**:
-1. Write: recommendation-config.test.ts â€” verify data sources are accessible to engine
+1. Write: recommendation-config.test.ts - verify data sources are accessible to engine
 2. Run -> FAIL
 3. Implement: recommendationService scaffold
 4. Run -> PASS
@@ -24,7 +24,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 2 â€” Architecture
+## STAGE 2 - Architecture
 
 **REQ-IDs**: REQ-005, REQ-006, REQ-024
 **TEST-IDs**: TEST-005-UT-POS, TEST-006-UT-POS, TEST-024-UT-POS
@@ -35,7 +35,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Explicitly add architectural constraint check preventing multi-vendor logic
 
 **TDD Flow**:
-1. Write: engine-architecture.test.ts â€” verify engine combines scores from multiple sources
+1. Write: engine-architecture.test.ts - verify engine combines scores from multiple sources
 2. Run -> FAIL
 3. Implement: base scoring logic
 4. Run -> PASS
@@ -43,7 +43,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 3 â€” Database
+## STAGE 3 - Database
 
 **REQ-IDs**: REQ-005, REQ-006
 **TEST-IDs**: TEST-005-IT-POS, TEST-006-IT-POS
@@ -54,7 +54,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Run migration for trending view if applicable
 
 **TDD Flow**:
-1. Write: trending-query.test.ts â€” verify trending query returns top products quickly
+1. Write: trending-query.test.ts - verify trending query returns top products quickly
 2. Run -> FAIL
 3. Implement: Sequelize raw query or Redis sorted set for trending
 4. Run -> PASS
@@ -62,7 +62,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 4 â€” Backend
+## STAGE 4 - Backend
 
 **REQ-IDs**: REQ-005, REQ-006
 **TEST-IDs**: TEST-005-UT-POS, TEST-006-UT-POS
@@ -71,10 +71,10 @@ REQs: REQ-005, REQ-006, REQ-024
 - Implement recommendationService.getRecommendations(userId)
 - Combine signals: Search history, Wishlist, Recently Viewed, Purchase History
 - Fallback logic: if insufficient user data, return Trending products
-- GET /recommendations â€” endpoint to serve personalized list
+- GET /recommendations - endpoint to serve personalized list
 
 **TDD Flow**:
-1. Write: recommendations.test.ts â€” verify user with specific views gets related recommendations
+1. Write: recommendations.test.ts - verify user with specific views gets related recommendations
 2. Run -> FAIL
 3. Implement: signal aggregation and product fetching
 4. Run -> PASS
@@ -82,7 +82,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 5 â€” Frontend
+## STAGE 5 - Frontend
 
 **REQ-IDs**: REQ-005, REQ-006, REQ-024
 **TEST-IDs**: TEST-005-E2E-POS, TEST-006-E2E-POS, TEST-024-E2E-POS
@@ -94,7 +94,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Ensure UI strictly reflects single-vendor design (no "Sold by X" labels)
 
 **TDD Flow**:
-1. Write: ProductCarousel.test.tsx â€” renders list of recommended products
+1. Write: ProductCarousel.test.tsx - renders list of recommended products
 2. Run -> FAIL
 3. Implement: ProductCarousel UI
 4. Run -> PASS
@@ -102,7 +102,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 6 â€” State
+## STAGE 6 - State
 
 **REQ-IDs**: REQ-005
 **TEST-IDs**: TEST-005-UT-POS
@@ -112,7 +112,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Configure aggressive caching (staleTime: 1 hour) as recommendations don't need real-time updates
 
 **TDD Flow**:
-1. Write: useRecommendations.test.tsx â€” fetches recommendations
+1. Write: useRecommendations.test.tsx - fetches recommendations
 2. Run -> FAIL
 3. Implement: hook logic
 4. Run -> PASS
@@ -120,7 +120,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 7 â€” Auth
+## STAGE 7 - Auth
 
 **REQ-IDs**: REQ-005
 **TEST-IDs**: TEST-005-IT-POS
@@ -130,7 +130,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Verify GET /recommendations returns generic/trending data without JWT (graceful degradation)
 
 **TDD Flow**:
-1. Write: recommendation-auth.test.ts â€” unauthenticated request returns trending products
+1. Write: recommendation-auth.test.ts - unauthenticated request returns trending products
 2. Run -> FAIL
 3. Implement: auth check branch in route handler
 4. Run -> PASS
@@ -138,7 +138,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 8 â€” Integration
+## STAGE 8 - Integration
 
 **REQ-IDs**: REQ-005, REQ-006
 **TEST-IDs**: TEST-005-IT-POS, TEST-006-IT-POS
@@ -148,7 +148,7 @@ REQs: REQ-005, REQ-006, REQ-024
 - Verify performance of recommendation query under load
 
 **TDD Flow**:
-1. Write: recommendation-integration.test.ts â€” full flow from user action to recommendation output
+1. Write: recommendation-integration.test.ts - full flow from user action to recommendation output
 2. Run -> FAIL
 3. Implement: necessary wiring and performance tuning
 4. Run -> PASS
@@ -156,7 +156,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 9 â€” Testing
+## STAGE 9 - Testing
 
 **REQ-IDs**: All Phase 5 REQs
 **TEST-IDs**: All Phase 5 TEST-IDs
@@ -170,7 +170,7 @@ REQs: REQ-005, REQ-006, REQ-024
 
 ---
 
-## STAGE 10 â€” Deployment
+## STAGE 10 - Deployment
 
 **REQ-IDs**: REQ-005
 **TEST-IDs**: TEST-005-E2E-POS
